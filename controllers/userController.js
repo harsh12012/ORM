@@ -127,19 +127,19 @@ const userController ={
             console.error(error)
         }
     },
-};
-async function getTotalRevenue(req,res){
-    const getTotalRevenueResult = await Order.aggregate([
-        {
-            $group:{
-                _id:null,
-                totalRevenue:{$sum:'$totalAmount'}
+    async getTotalRevenue(req,res){
+        const getTotalRevenueResult = await Order.aggregate([
+            {
+                $group:{
+                    _id:null,
+                    totalRevenue:{$sum:'$totalAmount'}
+                }
             }
-        }
-    ])
-    const totalRevenue = getTotalRevenueResult>0?getTotalRevenueResult[0].totalRevenue:0
-    res.json({totalRevenue})
-}
+        ])
+        const totalRevenue = getTotalRevenueResult>0?getTotalRevenueResult[0].totalRevenue:0
+        res.json({totalRevenue})
+    }
+};
 
-module.exports = {userController,
-getTotalRevenue};
+
+module.exports = userController;

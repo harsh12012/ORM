@@ -14,6 +14,7 @@ router.get('/orders/:userId',userController.getOrderByUserId)
 router.get('/orders/:id',userController.getOrderById)
 router.put('/orders/:id',userController.updateOrder)
 router.delete('/orders/:id',userController.deleteOrder)
+
 router.get('/total-revenue',userController.getTotalRevenue)
 
 module.exports = router;
